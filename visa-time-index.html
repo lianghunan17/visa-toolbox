@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日本在留审理时间预测助手</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./mode-config.js"></script>
+    <script src="./license-client.js"></script>
+    <script src="./mode-gate.js"></script>
+  </head>
+  <body>
+    <div class="app" id="appRoot">
+      <header>
+        <h1>日本在留审理时间预测</h1>
+        <p id="pageSubtitle">
+          基于官方历史处理期间，给出大致审理时间、预计结果日期和当前等待判断。
+        </p>
+        <div class="mode-strip">
+          <span id="pageModeLabel" class="mode-pill highlight">测试版</span>
+          <span id="pageModeHint" class="mode-pill">快速试跑</span>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card form-card">
+          <h2>输入信息</h2>
+          <form id="visa-form">
+            <label>
+              案例名称
+              <input id="caseName" type="text" placeholder="例如：技人国-东京-2026-04" />
+            </label>
+            <label>
+              统计口径
+              <select id="bureauName">
+                <option value="全国">全国</option>
+              </select>
+            </label>
+
+            <label>
+              都道府县（自动归属局体系）
+              <select id="prefecture">
+                <option value="">手动选择</option>
+                <option value="東京都">東京都</option>
+                <option value="神奈川県">神奈川県</option>
+                <option value="埼玉県">埼玉県</option>
+                <option value="千葉県">千葉県</option>
+                <option value="茨城県">茨城県</option>
+                <option value="栃木県">栃木県</option>
+                <option value="群馬県">群馬県</option>
+                <option value="山梨県">山梨県</option>
+                <option value="長野県">長野県</option>
+                <option value="新潟県">新潟県</option>
+                <option value="滋賀県">滋賀県</option>
+                <option value="京都府">京都府</option>
+                <option value="大阪府">大阪府</option>
+                <option value="兵庫県">兵庫県</option>
+                <option value="奈良県">奈良県</option>
+                <option value="和歌山県">和歌山県</option>
+                <option value="愛知県">愛知県</option>
+                <option value="三重県">三重県</option>
+                <option value="静岡県">静岡県</option>
+                <option value="岐阜県">岐阜県</option>
+                <option value="福井県">福井県</option>
+                <option value="富山県">富山県</option>
+                <option value="石川県">石川県</option>
+                <option value="福岡県">福岡県</option>
+                <option value="佐賀県">佐賀県</option>
+                <option value="長崎県">長崎県</option>
+                <option value="大分県">大分県</option>
+                <option value="熊本県">熊本県</option>
+                <option value="宮崎県">宮崎県</option>
+                <option value="鹿児島県">鹿児島県</option>
+                <option value="沖縄県">沖縄県</option>
+              </select>
+            </label>
+
+            <label>
+              申请地区（近似修正）
+              <select id="regionFactor">
+                <option value="全国">全国基准</option>
+                <option value="東京">東京</option>
+                <option value="大阪">大阪</option>
+                <option value="名古屋">名古屋</option>
+                <option value="福岡">福岡</option>
+              </select>
+            </label>
+
+            <label>
+              申请类型
+              <select id="applicationKind"></select>
+            </label>
+
+            <label>
+              指标口径
+              <select id="metric"></select>
+            </label>
+
+            <label>
+              在留资格
+              <select id="residenceStatus"></select>
+            </label>
+
+            <label>
+              递交日期
+              <input id="submitDate" type="date" />
+            </label>
+
+            <label>
+              今天日期
+              <input id="todayDate" type="date" />
+            </label>
+
+            <button type="submit">开始预测</button>
+          </form>
+        </section>
+
+        <section class="card result-card">
+          <div class="result-header">
+            <h2>预测结果</h2>
+            <div class="result-actions">
+              <button id="copyResult" type="button">复制结果</button>
+              <button id="downloadPdf" type="button">下载预测结果 PDF</button>
+            </div>
+          </div>
+          <div id="result" class="result-empty">请填写左侧信息后点击“开始预测”。</div>
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="./feedback.html" class="link-chip">用完了，去做评价</a>
+            <a href="./index.html" class="link-chip">返回工具箱</a>
+          </div>
+        </section>
+      </main>
+
+      <section class="card notes">
+        <h2>已保存案例</h2>
+        <label>
+          搜索案例
+          <input id="caseSearch" type="text" placeholder="输入案例名称搜索" />
+        </label>
+        <label>
+          排序方式
+          <select id="caseSort">
+            <option value="newest">最新优先</option>
+            <option value="oldest">最早优先</option>
+            <option value="name">按名称</option>
+          </select>
+        </label>
+        <div id="savedCases" class="result-empty">还没有保存的案例。</div>
+      </section>
+
+      <section class="card notes">
+        <h2>公开版说明</h2>
+        <div class="policy-box">
+          <p class="source-title">使用前请注意</p>
+          <ul>
+            <li>本工具基于公开官方资料与近似规则整理，仅供参考，不构成法律意见或官方承诺。</li>
+            <li>地方结果中的“地区修正”不是地方局官方平均审理时长，而是基于公开信号做的近似修正。</li>
+            <li>如需正式判断，请以日本出入国在留管理庁最新公开信息及专业人士意见为准。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card notes">
+        <h2>数据说明</h2>
+        <ul>
+          <li>当前页面使用本地内置的官方历史抽取数据。</li>
+          <li>当前数据口径主要是全国平均，不是各地方局分别统计。</li>
+          <li>“申请地区（近似修正）”不是官方地方均值，只是基于已查到的地方局公开信号做轻量修正。</li>
+          <li>“下签时间预测”本质是对历史处理天数的估算，不是审批通过保证。</li>
+          <li>官方原始说明明确：该数据不含不许可处分和申请取下。</li>
+        </ul>
+        <div id="regional-note" class="policy-box"></div>
+        <div id="office-note" class="policy-box"></div>
+      </section>
+    </div>
+
+    <script>
+      function applyPageMode() {
+        const config = window.ModeConfig.readModeConfig();
+        const presentation = window.ModeConfig.getModePresentation(config);
+        document.getElementById('pageSubtitle').textContent = config.mode === 'paid'
+          ? '当前为收费版，开始预测前会先校验你的激活状态。'
+          : config.mode === 'public-beta'
+            ? '当前为公测版，先真实开放使用，再用反馈决定收费版节奏。'
+            : '当前为测试版，优先验证预测逻辑、数据口径和页面体验。';
+        document.getElementById('pageModeLabel').textContent = presentation.modeLabel;
+        document.getElementById('pageModeHint').textContent = presentation.pill;
+      }
+      applyPageMode();
+      window.ModeConfig.fetchModeConfig().then(applyPageMode);
+    </script>
+    <script src="./visa-time-app.js"></script>
+  </body>
+</html>

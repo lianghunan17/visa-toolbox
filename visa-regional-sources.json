@@ -1,0 +1,22 @@
+[
+  {
+    "region": "東京",
+    "summary": "公开了业务分工、预约和通知，但未发现地方局平均审理天数表。",
+    "hasWaitTimeSignal": false
+  },
+  {
+    "region": "大阪",
+    "summary": "公开了在留审查部门与通知，但未发现地方局平均审理天数表。",
+    "hasWaitTimeSignal": false
+  },
+  {
+    "region": "名古屋",
+    "summary": "主页明确提示可通过 SNS 查看在留申请窗口等待时间，但仍未找到地方平均审理天数表。",
+    "hasWaitTimeSignal": true
+  },
+  {
+    "region": "福岡",
+    "summary": "公开了本局与分室分工，但未发现地方局平均审理天数表或公开窗口等待时间入口。",
+    "hasWaitTimeSignal": false
+  }
+]

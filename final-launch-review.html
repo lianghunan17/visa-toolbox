@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>签证工具箱上线前最终验收</title>
+    <style>
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #07111f; color: #e5f0ff; }
+      .wrap { max-width: 960px; margin: 0 auto; padding: 24px 16px 40px; }
+      .card { background: rgba(8,15,31,.82); border: 1px solid rgba(148,163,184,.18); border-radius: 20px; padding: 20px; margin-bottom: 16px; }
+      h1, h2 { margin: 0 0 10px; }
+      p, li { color: #cbd5e1; line-height: 1.8; }
+      .ok { color: #86efac; }
+      .warn { color: #fde68a; }
+      .bad { color: #fca5a5; }
+      code { background: rgba(15,23,42,.92); padding: 2px 8px; border-radius: 8px; }
+      a { color: #7dd3fc; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>签证工具箱上线前最终验收</h1>
+        <p>这是当前项目进入正式公开前的最后验收页，适合在真正发布前快速过一遍。</p>
+      </div>
+
+      <div class="card">
+        <h2>一，必须为绿</h2>
+        <ul>
+          <li><span class="ok">npm run preflight 已通过</span></li>
+          <li><span class="ok">/health 返回 ok: true</span></li>
+          <li><span class="ok">/ready 返回 ok: true</span></li>
+          <li><span class="ok">后台诊断面板全绿</span></li>
+          <li><span class="ok">授权创建、激活、验权至少走通一遍</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>二，正式环境不能犯的错</h2>
+        <ul>
+          <li><span class="bad">不要把前端继续指向 127.0.0.1</span></li>
+          <li><span class="bad">不要把 service role key 放进前端</span></li>
+          <li><span class="bad">不要恢复 NODE_TLS_REJECT_UNAUTHORIZED=0</span></li>
+          <li><span class="bad">不要让 admin.local.html 当正式后台入口</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>三，推荐阅读顺序</h2>
+        <ol>
+          <li><a href="./GO_LIVE_RUNBOOK.md">GO_LIVE_RUNBOOK.md</a></li>
+          <li><a href="./PUBLIC_LAUNCH_CHECKLIST.md">PUBLIC_LAUNCH_CHECKLIST.md</a></li>
+          <li><a href="./PRODUCTION_API_INJECTION.md">PRODUCTION_API_INJECTION.md</a></li>
+          <li><a href="./FRONTEND_DEPLOYMENT.md">FRONTEND_DEPLOYMENT.md</a></li>
+          <li><a href="./ADMIN_DEPLOYMENT.md">ADMIN_DEPLOYMENT.md</a></li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h2>四，正式公开顺序</h2>
+        <ol>
+          <li>先部署正式 API</li>
+          <li>确认正式 <code>/health</code> 和 <code>/ready</code> 变绿</li>
+          <li>再部署正式前端</li>
+          <li>显式注入正式 API 域名</li>
+          <li>先灰度给 3 到 10 个真实用户</li>
+          <li>灰度稳定后再扩大公开</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h2>五，当前本地成果入口</h2>
+        <ul>
+          <li><a href="http://127.0.0.1:8080/runtime-demo.html" target="_blank">运行态展示页</a></li>
+          <li><a href="http://127.0.0.1:8080/admin.local.html" target="_blank">后台本地入口</a></li>
+          <li><a href="http://127.0.0.1:8787/health" target="_blank">本地 /health</a></li>
+          <li><a href="http://127.0.0.1:8787/ready" target="_blank">本地 /ready</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

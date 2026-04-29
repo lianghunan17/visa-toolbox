@@ -1,0 +1,306 @@
+{
+  "出入国在留管理庁": {
+    "address": "〒100-8973 東京都千代田区霞が関1-1-1 中央合同庁舎6号館",
+    "phone": "045-370-9755",
+    "website": "https://www.moj.go.jp/isa/about/region/index.html",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%87%BA%E5%85%A5%E5%9B%BD%E5%9C%A8%E7%95%99%E7%AE%A1%E7%90%86%E5%BA%81+%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%8D%83%E4%BB%A3%E7%94%B0%E5%8C%BA%E9%9C%9E%E3%81%8C%E9%96%A21-1-1",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）",
+    "note": "出入国在留管理庁 本庁"
+  },
+  "本局（品川）": {
+    "address": "〒108-8255 東京都港区港南5-5-30",
+    "phone": "0570-034259 / 03-5796-7234",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E5%87%BA%E5%85%A5%E5%9B%BD%E5%9C%A8%E7%95%99%E7%AE%A1%E7%90%86%E5%B1%80+%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E6%B8%AF%E5%8D%975-5-30",
+    "hours": "平日 9:00-16:00",
+    "note": "東京出入国在留管理局 本局"
+  },
+  "横浜支局系統": {
+    "address": "〒236-0002 神奈川県横浜市金沢区鳥浜町10-7",
+    "phone": "0570-045259",
+    "website": "https://www.moj.go.jp/isa/about/region/yokohama/index.html",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%A8%AA%E6%B5%9C%E6%94%AF%E5%B1%80+%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82%E9%87%91%E6%B2%A2%E5%8C%BA%E9%B3%A5%E6%B5%9C%E7%94%BA10-7",
+    "hours": "平日 9:00-16:00",
+    "note": "横浜支局"
+  },
+  "さいたま出張所": {
+    "address": "〒338-0002 埼玉県さいたま市中央区下落合5-12-1 さいたま第2法務総合庁舎1F",
+    "phone": "048-851-9671",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般。埼玉县常见主受理点。",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92338-0002%20%E5%9F%BC%E7%8E%89%E7%9C%8C%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E4%B8%8B%E8%90%BD%E5%90%885-12-1%20%E3%81%95%E3%81%84%E3%81%9F%E3%81%BE%E7%AC%AC2%E6%B3%95%E5%8B%99%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E1F",
+    "hours": "平日 9:00-16:00"
+  },
+  "千葉出張所": {
+    "address": "〒260-0025 千葉県千葉市中央区問屋町1-35 千葉ポートサイドタワー3階",
+    "phone": "043-242-6597",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般・海港業務。页面已核对官方迁址信息。",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%8D%83%E8%91%89%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92260-0025%20%E5%8D%83%E8%91%89%E7%9C%8C%E5%8D%83%E8%91%89%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%95%8F%E5%B1%8B%E7%94%BA1-35%20%E5%8D%83%E8%91%89%E3%83%9D%E3%83%BC%E3%83%88%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BF%E3%83%AF%E3%83%BC3%E9%9A%8E",
+    "hours": "平日 9:00-16:00"
+  },
+  "松戸出張所": {
+    "address": "〒271-0092 千葉県松戸市松戸1307-1 キテミテマツド8階",
+    "phone": "047-701-5472",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般。東京都荒川区・足立区・葛飾区・江戸川区也纳入管辖。",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E6%88%B8%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92271-0092%20%E5%8D%83%E8%91%89%E7%9C%8C%E6%9D%BE%E6%88%B8%E5%B8%82%E6%9D%BE%E6%88%B81307-1%20%E3%82%AD%E3%83%86%E3%83%9F%E3%83%86%E3%83%9E%E3%83%84%E3%83%898%E9%9A%8E",
+    "hours": "平日 9:00-16:00"
+  },
+  "水戸出張所": {
+    "address": "〒310-0061 茨城県水戸市北見町1-1 水戸法務総合庁舎1階",
+    "phone": "029-300-3601",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般・海港業務。茨城常见受理点之一。",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%B0%B4%E6%88%B8%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92310-0061%20%E8%8C%A8%E5%9F%8E%E7%9C%8C%E6%B0%B4%E6%88%B8%E5%B8%82%E5%8C%97%E8%A6%8B%E7%94%BA1-1%20%E6%B0%B4%E6%88%B8%E6%B3%95%E5%8B%99%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E1%E9%9A%8E",
+    "hours": "平日 9:00-16:00"
+  },
+  "宇都宮出張所": {
+    "address": "〒320-0036 栃木県宇都宮市小幡2-1-11 宇都宮法務総合庁舎1階",
+    "phone": "028-600-7750",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般。栃木常见主受理点。",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%AE%87%E9%83%BD%E5%AE%AE%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92320-0036%20%E6%A0%83%E6%9C%A8%E7%9C%8C%E5%AE%87%E9%83%BD%E5%AE%AE%E5%B8%82%E5%B0%8F%E5%B9%A12-1-11%20%E5%AE%87%E9%83%BD%E5%AE%AE%E6%B3%95%E5%8B%99%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E1%E9%9A%8E",
+    "hours": "平日 9:00-16:00"
+  },
+  "高崎出張所": {
+    "address": "〒370-0829 群馬県高崎市高松町26-5 高崎法務総合庁舎1階",
+    "phone": "027-328-1154",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般。群马常见主受理点。",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E5%B4%8E%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92370-0829%20%E7%BE%A4%E9%A6%AC%E7%9C%8C%E9%AB%98%E5%B4%8E%E5%B8%82%E9%AB%98%E6%9D%BE%E7%94%BA26-5%20%E9%AB%98%E5%B4%8E%E6%B3%95%E5%8B%99%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E1%E9%9A%8E",
+    "hours": "平日 9:00-16:00"
+  },
+  "立川出張所": {
+    "address": "〒186-0001 東京都国立市北3-31-2 立川法務総合庁舎",
+    "phone": "042-528-7179",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般・空港業務。东京西侧与部分相模原、山梨常见落点。",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E7%AB%8B%E5%B7%9D%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92186-0001%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%9B%BD%E7%AB%8B%E5%B8%82%E5%8C%973-31-2%20%E7%AB%8B%E5%B7%9D%E6%B3%95%E5%8B%99%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00"
+  },
+  "新潟出張所": {
+    "address": "〒950-0001 新潟県新潟市東区松浜町3710 新潟空港ターミナルビル",
+    "phone": "025-275-4735",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般・空海港業務",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E6%BD%9F%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92950-0001%20%E6%96%B0%E6%BD%9F%E7%9C%8C%E6%96%B0%E6%BD%9F%E5%B8%82%E6%9D%B1%E5%8C%BA%E6%9D%BE%E6%B5%9C%E7%94%BA3710%20%E6%96%B0%E6%BD%9F%E7%A9%BA%E6%B8%AF%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E3%83%93%E3%83%AB",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "甲府出張所": {
+    "address": "〒400-0031 山梨県甲府市丸の内1-1-18 甲府合同庁舎9階",
+    "phone": "055-255-3350",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E7%94%B2%E5%BA%9C%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92400-0031%20%E5%B1%B1%E6%A2%A8%E7%9C%8C%E7%94%B2%E5%BA%9C%E5%B8%82%E4%B8%B8%E3%81%AE%E5%86%851-1-18%20%E7%94%B2%E5%BA%9C%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E9%E9%9A%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "長野出張所": {
+    "address": "〒380-0846 長野県長野市旭町1108 長野第一合同庁舎3階",
+    "phone": "026-232-3317",
+    "website": "https://www.moj.go.jp/isa/about/region/tokyo/index.html",
+    "note": "在留審査一般・海港業務",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E9%87%8E%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92380-0846%20%E9%95%B7%E9%87%8E%E7%9C%8C%E9%95%B7%E9%87%8E%E5%B8%82%E6%97%AD%E7%94%BA1108%20%E9%95%B7%E9%87%8E%E7%AC%AC%E4%B8%80%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E3%E9%9A%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "本局（大阪）": {
+    "address": "〒559-0034 大阪府大阪市住之江区南港北1-29-53",
+    "phone": "0570-064259",
+    "website": "https://www.moj.go.jp/isa/about/region/osaka/index.html",
+    "note": "大阪出入国在留管理局 本局",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E5%B1%80%EF%BC%88%E5%A4%A7%E9%98%AA%EF%BC%89%20%E3%80%92559-0034%20%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A4%A7%E9%98%AA%E5%B8%82%E4%BD%8F%E4%B9%8B%E6%B1%9F%E5%8C%BA%E5%8D%97%E6%B8%AF%E5%8C%971-29-53",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "京都出張所": {
+    "address": "〒606-8395 京都府京都市左京区丸太町川端東入ル東丸太町34-12 京都第二地方合同庁舎",
+    "phone": "075-752-5997",
+    "website": "https://www.moj.go.jp/isa/about/region/osaka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E9%83%BD%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92606-8395%20%E4%BA%AC%E9%83%BD%E5%BA%9C%E4%BA%AC%E9%83%BD%E5%B8%82%E5%B7%A6%E4%BA%AC%E5%8C%BA%E4%B8%B8%E5%A4%AA%E7%94%BA%E5%B7%9D%E7%AB%AF%E6%9D%B1%E5%85%A5%E3%83%AB%E6%9D%B1%E4%B8%B8%E5%A4%AA%E7%94%BA34-12%20%E4%BA%AC%E9%83%BD%E7%AC%AC%E4%BA%8C%E5%9C%B0%E6%96%B9%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "大津出張所": {
+    "address": "〒520-0806 滋賀県大津市打出浜14-15",
+    "phone": "077-527-2756",
+    "website": "https://www.moj.go.jp/isa/about/region/osaka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%B4%A5%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92520-0806%20%E6%BB%8B%E8%B3%80%E7%9C%8C%E5%A4%A7%E6%B4%A5%E5%B8%82%E6%89%93%E5%87%BA%E6%B5%9C14-15",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "奈良出張所": {
+    "address": "〒630-8305 奈良県奈良市東紀寺町3-4-1",
+    "phone": "0742-23-6501",
+    "website": "https://www.moj.go.jp/isa/about/region/osaka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%A5%88%E8%89%AF%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92630-8305%20%E5%A5%88%E8%89%AF%E7%9C%8C%E5%A5%88%E8%89%AF%E5%B8%82%E6%9D%B1%E7%B4%80%E5%AF%BA%E7%94%BA3-4-1",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "和歌山出張所": {
+    "address": "〒640-8159 和歌山県和歌山市十一番丁47 和歌山第2法務総合庁舎",
+    "phone": "073-422-8778",
+    "website": "https://www.moj.go.jp/isa/about/region/osaka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92640-8159%20%E5%92%8C%E6%AD%8C%E5%B1%B1%E7%9C%8C%E5%92%8C%E6%AD%8C%E5%B1%B1%E5%B8%82%E5%8D%81%E4%B8%80%E7%95%AA%E4%B8%8147%20%E5%92%8C%E6%AD%8C%E5%B1%B1%E7%AC%AC2%E6%B3%95%E5%8B%99%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "舞鶴港出張所": {
+    "address": "〒624-0946 京都府舞鶴市下福井901",
+    "phone": "0773-75-1149",
+    "website": "https://www.moj.go.jp/isa/about/region/osaka/index.html",
+    "note": "港湾系出張所",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E8%88%9E%E9%B6%B4%E6%B8%AF%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92624-0946%20%E4%BA%AC%E9%83%BD%E5%BA%9C%E8%88%9E%E9%B6%B4%E5%B8%82%E4%B8%8B%E7%A6%8F%E4%BA%95901",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "本局（名古屋）": {
+    "address": "〒455-8601 愛知県名古屋市港区正保町5-18",
+    "phone": "0570-052259",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "名古屋出入国在留管理局 本局",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E5%B1%80%EF%BC%88%E5%90%8D%E5%8F%A4%E5%B1%8B%EF%BC%89%20%E3%80%92455-8601%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%B8%82%E6%B8%AF%E5%8C%BA%E6%AD%A3%E4%BF%9D%E7%94%BA5-18",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "豊橋港出張所": {
+    "address": "〒441-8075 愛知県豊橋市神野ふ頭町3-11 豊橋港湾合同庁舎",
+    "phone": "0532-32-6567",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "港湾系出張所",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E8%B1%8A%E6%A9%8B%E6%B8%AF%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92441-8075%20%E6%84%9B%E7%9F%A5%E7%9C%8C%E8%B1%8A%E6%A9%8B%E5%B8%82%E7%A5%9E%E9%87%8E%E3%81%B5%E9%A0%AD%E7%94%BA3-11%20%E8%B1%8A%E6%A9%8B%E6%B8%AF%E6%B9%BE%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "四日市港出張所": {
+    "address": "〒510-0011 三重県四日市市霞2-1-1 四日市港湾合同庁舎",
+    "phone": "059-352-5695",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "港湾系出張所",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%9B%9B%E6%97%A5%E5%B8%82%E6%B8%AF%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92510-0011%20%E4%B8%89%E9%87%8D%E7%9C%8C%E5%9B%9B%E6%97%A5%E5%B8%82%E5%B8%82%E9%9C%9E2-1-1%20%E5%9B%9B%E6%97%A5%E5%B8%82%E6%B8%AF%E6%B9%BE%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "静岡出張所": {
+    "address": "〒420-0858 静岡県静岡市葵区伝馬町9-4 一瀬センタービル",
+    "phone": "054-653-5571",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E9%9D%99%E5%B2%A1%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92420-0858%20%E9%9D%99%E5%B2%A1%E7%9C%8C%E9%9D%99%E5%B2%A1%E5%B8%82%E8%91%B5%E5%8C%BA%E4%BC%9D%E9%A6%AC%E7%94%BA9-4%20%E4%B8%80%E7%80%AC%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%93%E3%83%AB",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "浜松出張所": {
+    "address": "〒430-0929 静岡県浜松市中央区中央1-12-4 浜松合同庁舎",
+    "phone": "053-458-6496",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%B5%9C%E6%9D%BE%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92430-0929%20%E9%9D%99%E5%B2%A1%E7%9C%8C%E6%B5%9C%E6%9D%BE%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E4%B8%AD%E5%A4%AE1-12-4%20%E6%B5%9C%E6%9D%BE%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "岐阜出張所": {
+    "address": "〒500-8812 岐阜県岐阜市美江寺町2-7-2 岐阜法務総合庁舎",
+    "phone": "058-214-6168",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%B2%90%E9%98%9C%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92500-8812%20%E5%B2%90%E9%98%9C%E7%9C%8C%E5%B2%90%E9%98%9C%E5%B8%82%E7%BE%8E%E6%B1%9F%E5%AF%BA%E7%94%BA2-7-2%20%E5%B2%90%E9%98%9C%E6%B3%95%E5%8B%99%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "福井出張所": {
+    "address": "〒910-0019 福井県福井市春山1-1-54 福井春山合同庁舎",
+    "phone": "0776-28-2101",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E4%BA%95%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92910-0019%20%E7%A6%8F%E4%BA%95%E7%9C%8C%E7%A6%8F%E4%BA%95%E5%B8%82%E6%98%A5%E5%B1%B11-1-54%20%E7%A6%8F%E4%BA%95%E6%98%A5%E5%B1%B1%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "富山出張所": {
+    "address": "〒930-0856 富山県富山市牛島新町11-7 富山地方合同庁舎",
+    "phone": "076-495-1580",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%AF%8C%E5%B1%B1%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92930-0856%20%E5%AF%8C%E5%B1%B1%E7%9C%8C%E5%AF%8C%E5%B1%B1%E5%B8%82%E7%89%9B%E5%B3%B6%E6%96%B0%E7%94%BA11-7%20%E5%AF%8C%E5%B1%B1%E5%9C%B0%E6%96%B9%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "金沢出張所": {
+    "address": "〒920-0024 石川県金沢市西念3-4-1 金沢駅西合同庁舎",
+    "phone": "076-222-2450",
+    "website": "https://www.moj.go.jp/isa/about/region/nagoya/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E9%87%91%E6%B2%A2%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92920-0024%20%E7%9F%B3%E5%B7%9D%E7%9C%8C%E9%87%91%E6%B2%A2%E5%B8%82%E8%A5%BF%E5%BF%B53-4-1%20%E9%87%91%E6%B2%A2%E9%A7%85%E8%A5%BF%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "本局（福岡）": {
+    "address": "〒812-0003 福岡県福岡市博多区下臼井778-1 福岡空港国内線第3ターミナルビル別棟",
+    "phone": "092-623-2400",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "福岡出入国在留管理局 本局",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E6%9C%AC%E5%B1%80%EF%BC%88%E7%A6%8F%E5%B2%A1%EF%BC%89%20%E3%80%92812-0003%20%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%A6%8F%E5%B2%A1%E5%B8%82%E5%8D%9A%E5%A4%9A%E5%8C%BA%E4%B8%8B%E8%87%BC%E4%BA%95778-1%20%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF%E5%9B%BD%E5%86%85%E7%B7%9A%E7%AC%AC3%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E3%83%93%E3%83%AB%E5%88%A5%E6%A3%9F",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "北九州出張所": {
+    "address": "〒803-0813 福岡県北九州市小倉北区城内5-3 小倉地方合同庁舎",
+    "phone": "093-582-6915",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%8C%97%E4%B9%9D%E5%B7%9E%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92803-0813%20%E7%A6%8F%E5%B2%A1%E7%9C%8C%E5%8C%97%E4%B9%9D%E5%B7%9E%E5%B8%82%E5%B0%8F%E5%80%89%E5%8C%97%E5%8C%BA%E5%9F%8E%E5%86%855-3%20%E5%B0%8F%E5%80%89%E5%9C%B0%E6%96%B9%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "佐賀出張所": {
+    "address": "〒840-0801 佐賀県佐賀市駅前中央3-3-20 佐賀第2合同庁舎",
+    "phone": "0952-36-6262",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E4%BD%90%E8%B3%80%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92840-0801%20%E4%BD%90%E8%B3%80%E7%9C%8C%E4%BD%90%E8%B3%80%E5%B8%82%E9%A7%85%E5%89%8D%E4%B8%AD%E5%A4%AE3-3-20%20%E4%BD%90%E8%B3%80%E7%AC%AC2%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "長崎出張所": {
+    "address": "〒850-0921 長崎県長崎市松が枝町7-25 長崎港湾合同庁舎",
+    "phone": "095-822-5289",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E9%95%B7%E5%B4%8E%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92850-0921%20%E9%95%B7%E5%B4%8E%E7%9C%8C%E9%95%B7%E5%B4%8E%E5%B8%82%E6%9D%BE%E3%81%8C%E6%9E%9D%E7%94%BA7-25%20%E9%95%B7%E5%B4%8E%E6%B8%AF%E6%B9%BE%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "対馬出張所": {
+    "address": "〒817-0016 長崎県対馬市厳原町東里341-42",
+    "phone": "0920-52-0432",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "離島系出張所",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%AF%BE%E9%A6%AC%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92817-0016%20%E9%95%B7%E5%B4%8E%E7%9C%8C%E5%AF%BE%E9%A6%AC%E5%B8%82%E5%8E%B3%E5%8E%9F%E7%94%BA%E6%9D%B1%E9%87%8C341-42",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "大分出張所": {
+    "address": "〒870-0045 大分県大分市城崎町2-3-31 大分法務総合庁舎",
+    "phone": "097-536-5006",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%88%86%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92870-0045%20%E5%A4%A7%E5%88%86%E7%9C%8C%E5%A4%A7%E5%88%86%E5%B8%82%E5%9F%8E%E5%B4%8E%E7%94%BA2-3-31%20%E5%A4%A7%E5%88%86%E6%B3%95%E5%8B%99%E7%B7%8F%E5%90%88%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "熊本出張所": {
+    "address": "〒862-0971 熊本県熊本市中央区大江3-1-53 熊本第二合同庁舎",
+    "phone": "096-362-1721",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E6%9C%AC%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92862-0971%20%E7%86%8A%E6%9C%AC%E7%9C%8C%E7%86%8A%E6%9C%AC%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E5%A4%A7%E6%B1%9F3-1-53%20%E7%86%8A%E6%9C%AC%E7%AC%AC%E4%BA%8C%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "宮崎出張所": {
+    "address": "〒880-0805 宮崎県宮崎市橘通東1-7-4 第一宮銀ビル",
+    "phone": "0985-31-3580",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E5%B4%8E%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92880-0805%20%E5%AE%AE%E5%B4%8E%E7%9C%8C%E5%AE%AE%E5%B4%8E%E5%B8%82%E6%A9%98%E9%80%9A%E6%9D%B11-7-4%20%E7%AC%AC%E4%B8%80%E5%AE%AE%E9%8A%80%E3%83%93%E3%83%AB",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "鹿児島出張所": {
+    "address": "〒892-0812 鹿児島県鹿児島市浜町2-5 鹿児島港湾合同庁舎",
+    "phone": "099-222-5658",
+    "website": "https://www.moj.go.jp/isa/about/region/fukuoka/index.html",
+    "note": "在留審査一般",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E9%B9%BF%E5%85%90%E5%B3%B6%E5%87%BA%E5%BC%B5%E6%89%80%20%E3%80%92892-0812%20%E9%B9%BF%E5%85%90%E5%B3%B6%E7%9C%8C%E9%B9%BF%E5%85%90%E5%B3%B6%E5%B8%82%E6%B5%9C%E7%94%BA2-5%20%E9%B9%BF%E5%85%90%E5%B3%B6%E6%B8%AF%E6%B9%BE%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  },
+  "那覇支局系統": {
+    "address": "〒900-0022 沖縄県那覇市樋川1-15-15 那覇第一地方合同庁舎",
+    "phone": "098-832-4185",
+    "website": "https://www.moj.go.jp/isa/about/region/naha/index.html",
+    "note": "那覇支局",
+    "map": "https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E8%A6%87%E6%94%AF%E5%B1%80%E7%B3%BB%E7%B5%B1%20%E3%80%92900-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E6%A8%8B%E5%B7%9D1-15-15%20%E9%82%A3%E8%A6%87%E7%AC%AC%E4%B8%80%E5%9C%B0%E6%96%B9%E5%90%88%E5%90%8C%E5%BA%81%E8%88%8E",
+    "hours": "平日 9:00-16:00（目安。正式窓口時間は公式確認推奨）"
+  }
+}

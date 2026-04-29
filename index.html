@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>签证工具箱</title>
+    <script src="./mode-config.js"></script>
+    <script src="./license-client.js"></script>
+    <style>
+      * { box-sizing: border-box; }
+      :root {
+        --bg: radial-gradient(circle at top, rgba(56,189,248,.18), transparent 28%), radial-gradient(circle at 80% 10%, rgba(168,85,247,.18), transparent 24%), linear-gradient(180deg, #040814 0%, #091221 45%, #07111f 100%);
+        --panel: rgba(8, 15, 31, 0.72);
+        --panel-border: rgba(148, 163, 184, 0.18);
+        --text: #e5f0ff;
+        --muted: #93a4bf;
+        --primary: #38bdf8;
+        --accent: #a78bfa;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: linear-gradient(rgba(96, 165, 250, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(96, 165, 250, 0.06) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: linear-gradient(180deg, rgba(255,255,255,0.35), transparent 85%);
+        pointer-events: none;
+      }
+      .wrap {
+        width: 100%;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
+      }
+      .hero, .tool, .survey-card {
+        background: rgba(8, 15, 31, 0.72);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
+      }
+      .hero {
+        padding: 26px;
+        margin-bottom: 16px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::after {
+        content: '';
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(circle, rgba(56,189,248,.28), transparent 70%);
+      }
+      .hero-top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .hero-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0 12px 30px rgba(56,189,248,.28);
+      }
+      h1 {
+        margin: 0;
+        font-size: 32px;
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+      .mini-nav, .mode-strip {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .mini-nav span, .mode-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.86);
+        color: #dbeafe;
+        font-size: 13px;
+        font-weight: 700;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+      .mode-pill.highlight {
+        background: linear-gradient(135deg, rgba(56,189,248,.22), rgba(168,85,247,.22));
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .tool {
+        padding: 20px;
+      }
+      .tool-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .tool-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        background: rgba(15, 23, 42, 0.92);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+      .tool h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .tool p {
+        margin-bottom: 16px;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      a.button, button.button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 12px 16px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 700;
+        border: 0;
+        cursor: pointer;
+      }
+      a.button.primary, button.button.primary {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: #fff;
+      }
+      .meta {
+        margin-top: 18px;
+        font-size: 13px;
+        color: #9fb2d0;
+      }
+      .button.ghost {
+        background: rgba(15, 23, 42, 0.92);
+        color: var(--text);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+      .survey-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(2, 6, 23, 0.68);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        z-index: 50;
+      }
+      .survey-modal.show {
+        display: flex;
+      }
+      .survey-card {
+        width: 100%;
+        max-width: 560px;
+        padding: 22px;
+      }
+      .survey-card h3 {
+        margin: 0 0 8px;
+        font-size: 22px;
+      }
+      .survey-card p {
+        margin-bottom: 14px;
+      }
+      .survey-options {
+        display: grid;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .survey-option {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 12px 14px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: 14px;
+        background: rgba(15, 23, 42, 0.92);
+      }
+      .survey-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .license-banner {
+        margin-top: 16px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-size: 14px;
+        line-height: 1.7;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        background: rgba(15, 23, 42, 0.82);
+      }
+      .license-banner.ok { color: #86efac; }
+      .license-banner.beta { color: #7dd3fc; }
+      .license-banner.lock { color: #fcd34d; }
+      .mode-admin {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .mode-admin a {
+        color: #c4b5fd;
+        font-size: 13px;
+      }
+      @media (min-width: 768px) {
+        .wrap {
+          padding: 24px 24px 48px;
+        }
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="hero">
+        <div class="hero-top">
+          <div class="hero-icon">🧰</div>
+          <h1 id="heroTitle">签证工具箱</h1>
+        </div>
+        <p id="heroSubtitle">把常用的签证与在留判断工具放进一个更轻、更快、更未来感的入口。</p>
+        <div class="mini-nav">
+          <span>移动优先</span>
+          <span>玻璃拟态</span>
+          <span>多案例保存</span>
+          <span>一键切换版本模式</span>
+        </div>
+        <div class="mode-strip">
+          <span id="modeLabelPill" class="mode-pill highlight">测试版</span>
+          <span id="modeActionPill" class="mode-pill">快速试跑</span>
+        </div>
+        <div id="heroMeta" class="meta">当前版本会根据站点阶段动态切换使用说明与入口策略，尽量保持体验连续、清楚、可回退。</div>
+        <div id="licenseBanner" class="license-banner ok">当前阶段欢迎直接体验。使用后的选择式评价会帮助我判断下一版优先改什么、哪些能力值得继续做深。</div>
+        <div class="mode-admin"><span style="color:#93a4bf;font-size:13px;">管理入口默认不在公开首页暴露，以减少普通用户误入和环境误配风险。</span></div>
+      </section>
+
+      <section class="grid">
+        <article class="tool">
+          <div class="tool-head">
+            <div class="tool-icon">📈</div>
+            <h2>在留审理时间预测</h2>
+          </div>
+          <p>基于官方历史处理期间，估算大致审理时间、预计结果日期、当前等待判断，并附带地方近似修正与受理点提示。</p>
+          <div class="actions">
+            <a id="visaToolEntry" class="button primary tool-entry" href="./visa-time-index.html" data-tool="visa-time">开始测试</a>
+          </div>
+        </article>
+
+        <article class="tool">
+          <div class="tool-head">
+            <div class="tool-icon">📝</div>
+            <h2>永驻申请判断</h2>
+          </div>
+          <p>根据永驻申请常见规则和风险因素，做一个粗略的申请准备度判断，并快速查看主要风险与材料准备方向。</p>
+          <div class="actions">
+            <a id="prToolEntry" class="button primary tool-entry" href="./pr-index.html" data-tool="pr-check">开始测试</a>
+          </div>
+        </article>
+
+        <article class="tool">
+          <div class="tool-head">
+            <div class="tool-icon">💬</div>
+            <h2>使用评价</h2>
+          </div>
+          <p id="feedbackDescription">用完后做一个选择式评价，帮助我判断下一版该优先优化哪里，以及哪些能力真正值得长期保留。</p>
+          <div class="actions">
+            <a class="button primary" href="./feedback.html">去做评价</a>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <div id="surveyModal" class="survey-modal" aria-hidden="true">
+      <div class="survey-card">
+        <h3>先帮我选 1 个评价 🙏</h3>
+        <p id="surveyQuestionText">题目加载中...</p>
+        <div id="surveyOptions" class="survey-options"></div>
+        <div class="survey-actions">
+          <button id="skipSurveyBtn" class="button ghost" type="button">这次先跳过</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./feedback-api.js"></script>
+    <script src="./survey-gate.js"></script>
+    <script>
+      function applyHomeMode() {
+        const config = window.ModeConfig.readModeConfig();
+        const presentation = window.ModeConfig.getModePresentation(config);
+        document.title = `${config.title} · ${presentation.modeLabel}`;
+        document.getElementById('heroTitle').textContent = config.title;
+        document.getElementById('heroSubtitle').textContent = config.subtitle;
+        document.getElementById('heroMeta').textContent = config.announcement;
+        document.getElementById('licenseBanner').className = presentation.bannerClass;
+        document.getElementById('licenseBanner').textContent = presentation.bannerText;
+        document.getElementById('modeLabelPill').textContent = presentation.modeLabel;
+        document.getElementById('modeActionPill').textContent = presentation.pill;
+        document.getElementById('visaToolEntry').textContent = presentation.toolActionLabel;
+        document.getElementById('prToolEntry').textContent = presentation.toolActionLabel;
+      }
+
+      applyHomeMode();
+      if (typeof window.addEventListener === 'function') {
+        window.addEventListener('mode-config-changed', applyHomeMode);
+      }
+      window.ModeConfig.fetchModeConfig().then(applyHomeMode);
+      window.initSurveyGate();
+    </script>
+  </body>
+</html>

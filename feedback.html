@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>签证工具箱评价</title>
+    <script src="./mode-config.js"></script>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, rgba(56,189,248,.18), transparent 28%), radial-gradient(circle at 80% 10%, rgba(168,85,247,.18), transparent 24%), linear-gradient(180deg, #040814 0%, #091221 45%, #07111f 100%);
+        color: #e5f0ff;
+      }
+      .wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 24px 16px 48px;
+      }
+      .card {
+        background: rgba(8, 15, 31, 0.72);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 24px;
+        padding: 22px;
+        margin-bottom: 16px;
+        box-shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
+      }
+      h1, h2 { margin: 0 0 10px; }
+      p {
+        margin: 0;
+        color: #93a4bf;
+        line-height: 1.7;
+      }
+      .mode-strip {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+      .mode-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.86);
+        color: #dbeafe;
+        font-size: 13px;
+        font-weight: 700;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+      .mode-pill.highlight {
+        background: linear-gradient(135deg, rgba(56,189,248,.22), rgba(168,85,247,.22));
+      }
+      .question { margin-top: 18px; }
+      .question-title {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .option {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 10px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        background: rgba(15, 23, 42, 0.92);
+      }
+      textarea {
+        width: 100%;
+        min-height: 100px;
+        margin-top: 10px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        background: rgba(15, 23, 42, 0.92);
+        color: #e5f0ff;
+        font-size: 14px;
+        font-family: inherit;
+      }
+      button {
+        min-height: 46px;
+        padding: 0 18px;
+        border: 0;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #38bdf8, #a78bfa);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .secondary {
+        background: rgba(15, 23, 42, 0.92);
+        color: #e5f0ff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .message {
+        margin-top: 14px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-size: 14px;
+        display: none;
+      }
+      .message.show { display: block; }
+      .message.ok {
+        background: rgba(16, 185, 129, 0.16);
+        color: #a7f3d0;
+        border: 1px solid rgba(16, 185, 129, 0.28);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="card">
+        <h1>签证工具箱使用评价</h1>
+        <p id="feedbackIntro">当前处于体验收集阶段。你点几下就能帮我知道下一版该优先改什么，尽量都用选择项，不麻烦你写长文字。</p>
+        <div class="mode-strip">
+          <span id="feedbackModeLabel" class="mode-pill highlight">测试版</span>
+          <span id="feedbackModeHint" class="mode-pill">快速试跑</span>
+        </div>
+      </section>
+
+      <form id="feedbackForm" class="card">
+        <div class="question">
+          <div class="question-title">1. 这次工具对你有帮助吗</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="helpfulness" value="很有帮助" required /> 很有帮助</label>
+            <label class="option"><input type="radio" name="helpfulness" value="有一点帮助" /> 有一点帮助</label>
+            <label class="option"><input type="radio" name="helpfulness" value="一般" /> 一般</label>
+            <label class="option"><input type="radio" name="helpfulness" value="帮助不大" /> 帮助不大</label>
+            <label class="option"><input type="radio" name="helpfulness" value="没帮助" /> 没帮助</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-title">2. 你主要用了哪个工具</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="toolUsed" value="在留审理时间预测" required /> 在留审理时间预测</label>
+            <label class="option"><input type="radio" name="toolUsed" value="永驻申请判断" /> 永驻申请判断</label>
+            <label class="option"><input type="radio" name="toolUsed" value="两个都用了" /> 两个都用了</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-title">3. 你最看重什么（可多选）</div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="valueFocus" value="结果清楚" /> 结果清楚</label>
+            <label class="option"><input type="checkbox" name="valueFocus" value="速度快" /> 速度快</label>
+            <label class="option"><input type="checkbox" name="valueFocus" value="操作简单" /> 操作简单</label>
+            <label class="option"><input type="checkbox" name="valueFocus" value="看起来放心" /> 看起来放心</label>
+            <label class="option"><input type="checkbox" name="valueFocus" value="能保存案例" /> 能保存案例</label>
+            <label class="option"><input type="checkbox" name="valueFocus" value="能导出 PDF" /> 能导出 PDF</label>
+            <label class="option"><input type="checkbox" name="valueFocus" value="手机上好用" /> 手机上好用</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-title">4. 你觉得当前最大问题是什么</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="mainIssue" value="信息不够准" required /> 信息不够准</label>
+            <label class="option"><input type="radio" name="mainIssue" value="看不太懂" /> 看不太懂</label>
+            <label class="option"><input type="radio" name="mainIssue" value="步骤有点麻烦" /> 步骤有点麻烦</label>
+            <label class="option"><input type="radio" name="mainIssue" value="页面不好用" /> 页面不好用</label>
+            <label class="option"><input type="radio" name="mainIssue" value="手机体验一般" /> 手机体验一般</label>
+            <label class="option"><input type="radio" name="mainIssue" value="暂时没明显问题" /> 暂时没明显问题</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-title">5. 你以后最想增加什么（可多选）</div>
+          <div class="options">
+            <label class="option"><input type="checkbox" name="wantedFeatures" value="更多签证工具" /> 更多签证工具</label>
+            <label class="option"><input type="checkbox" name="wantedFeatures" value="更详细的材料建议" /> 更详细的材料建议</label>
+            <label class="option"><input type="checkbox" name="wantedFeatures" value="更准确的地方数据" /> 更准确的地方数据</label>
+            <label class="option"><input type="checkbox" name="wantedFeatures" value="结果解释更详细" /> 结果解释更详细</label>
+            <label class="option"><input type="checkbox" name="wantedFeatures" value="账号同步" /> 账号同步</label>
+            <label class="option"><input type="checkbox" name="wantedFeatures" value="多设备使用" /> 多设备使用</label>
+            <label class="option"><input type="checkbox" name="wantedFeatures" value="专家咨询入口" /> 专家咨询入口</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-title">6. 如果以后做收费版，你更能接受哪种方式</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="pricingPreference" value="一次买断" required /> 一次买断</label>
+            <label class="option"><input type="radio" name="pricingPreference" value="低价订阅" /> 低价订阅</label>
+            <label class="option"><input type="radio" name="pricingPreference" value="按功能收费" /> 按功能收费</label>
+            <label class="option"><input type="radio" name="pricingPreference" value="先免费，不想付费" /> 先免费，不想付费</label>
+            <label class="option"><input type="radio" name="pricingPreference" value="先看功能再决定" /> 先看功能再决定</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-title">7. 你愿意推荐给朋友吗</div>
+          <div class="options">
+            <label class="option"><input type="radio" name="recommendation" value="愿意" required /> 愿意</label>
+            <label class="option"><input type="radio" name="recommendation" value="可能会" /> 可能会</label>
+            <label class="option"><input type="radio" name="recommendation" value="不确定" /> 不确定</label>
+            <label class="option"><input type="radio" name="recommendation" value="不太会" /> 不太会</label>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-title">8. 还有没有补充（可不填）</div>
+          <textarea id="extraComment" placeholder="如果有一句话想补充，可以写在这里。也可以不写。"></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit">提交评价</button>
+          <a class="secondary option" href="./index.html">返回首页</a>
+        </div>
+        <div id="feedbackMessage" class="message"></div>
+      </form>
+    </div>
+
+    <script src="./feedback-api.js"></script>
+    <script>
+      function applyFeedbackMode() {
+        const config = window.ModeConfig.readModeConfig();
+        const presentation = window.ModeConfig.getModePresentation(config);
+        document.getElementById('feedbackModeLabel').textContent = presentation.modeLabel;
+        document.getElementById('feedbackModeHint').textContent = presentation.pill;
+        document.getElementById('feedbackIntro').textContent = config.mode === 'paid'
+          ? '当前已经切到收费版。这里继续收集真实使用后的感受，用来判断收费版值不值、哪里还不够。'
+          : config.mode === 'public-beta'
+            ? '当前为公测版。你点几下就能帮我知道下一版该优先改什么，尽量都用选择项，不麻烦你写长文字。'
+            : '当前为测试版。这里主要用来收集功能方向、界面感受和是否值得推进到公测版。';
+      }
+      applyFeedbackMode();
+      window.ModeConfig.fetchModeConfig().then(applyFeedbackMode);
+    </script>
+    <script src="./feedback.js"></script>
+  </body>
+</html>

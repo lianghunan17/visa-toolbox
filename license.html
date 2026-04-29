@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>签证工具箱激活</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f5f5f3;
+        color: #111827;
+      }
+      .wrap {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .card {
+        width: 100%;
+        max-width: 520px;
+        background: #fff;
+        border: 1px solid #e7e5e4;
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(17, 24, 39, 0.05);
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+      }
+      p {
+        margin: 0 0 18px;
+        color: #6b7280;
+        line-height: 1.7;
+      }
+      label {
+        display: block;
+        margin: 14px 0 8px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      input {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid #d6d3d1;
+        font-size: 15px;
+      }
+      button {
+        width: 100%;
+        margin-top: 18px;
+        min-height: 48px;
+        border: 0;
+        border-radius: 14px;
+        background: #111827;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .note {
+        margin-top: 14px;
+        font-size: 13px;
+        color: #6b7280;
+      }
+      .message {
+        margin-top: 14px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-size: 14px;
+        display: none;
+      }
+      .message.show { display: block; }
+      .message.ok {
+        background: #ecfdf5;
+        color: #065f46;
+        border: 1px solid #a7f3d0;
+      }
+      .message.error {
+        background: #fef2f2;
+        color: #991b1b;
+        border: 1px solid #fecaca;
+      }
+      .back {
+        display: inline-flex;
+        margin-top: 18px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>签证工具箱激活</h1>
+        <p>请输入购买时填写的邮箱和激活码。首次激活成功后，当前设备即可使用。</p>
+
+        <form id="licenseForm">
+          <label for="email">购买邮箱</label>
+          <input id="email" name="email" type="email" placeholder="请输入购买邮箱" autocomplete="email" required />
+
+          <label for="licenseKey">激活码</label>
+          <input id="licenseKey" name="licenseKey" type="text" placeholder="请输入激活码" autocomplete="off" required />
+
+          <button type="submit">立即激活</button>
+        </form>
+
+        <div id="message" class="message"></div>
+        <div class="note">默认支持 1 台设备激活。如需更换设备，可联系管理员协助换绑。若页面提示授权异常，请保留提示文案后再反馈，排查会更快。</div>
+        <a class="back" href="./index.html">返回工具箱首页</a>
+      </div>
+    </div>
+
+    <script src="./license-client.js"></script>
+    <script>
+      const form = document.getElementById('licenseForm');
+      const message = document.getElementById('message');
+      const params = new URLSearchParams(window.location.search);
+      const reason = params.get('reason');
+      const returnTo = params.get('returnTo') || 'index.html';
+
+      function showMessage(text, type) {
+        message.textContent = text;
+        message.className = `message show ${type}`;
+      }
+
+      if (reason) {
+        showMessage(reason, 'error');
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value.trim();
+        const licenseKey = document.getElementById('licenseKey').value.trim();
+
+        try {
+          const result = await LicenseClient.activate({ email, licenseKey });
+          showMessage(result.message || '激活成功，正在跳转。', 'ok');
+          setTimeout(() => {
+            window.location.href = `./${returnTo}`;
+          }, 900);
+        } catch (error) {
+          showMessage(error.message || '激活失败，请检查邮箱和激活码。', 'error');
+        }
+      });
+    </script>
+  </body>
+</html>

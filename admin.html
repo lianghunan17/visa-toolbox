@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>签证工具箱后台</title>
+    <script src="./mode-config.js"></script>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, rgba(56,189,248,.18), transparent 28%), radial-gradient(circle at 80% 10%, rgba(168,85,247,.18), transparent 24%), linear-gradient(180deg, #040814 0%, #091221 45%, #07111f 100%);
+        color: #e5f0ff;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 24px 16px 40px;
+      }
+      .hero, .panel, .table-card {
+        background: rgba(8, 15, 31, 0.72);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 24px;
+        padding: 20px;
+        margin-bottom: 16px;
+        box-shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
+      }
+      h1, h2, h3 { margin: 0 0 10px; }
+      p { margin: 0; color: #93a4bf; line-height: 1.7; }
+      .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+      .field-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
+      .mode-switch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+      .mode-option {
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: 18px;
+        background: rgba(15, 23, 42, 0.92);
+        padding: 14px;
+      }
+      .mode-option.active {
+        outline: 2px solid rgba(56, 189, 248, 0.55);
+        background: linear-gradient(135deg, rgba(56,189,248,.14), rgba(168,85,247,.14));
+      }
+      label { display: block; font-size: 14px; font-weight: 700; }
+      input, textarea, select {
+        width: 100%;
+        min-height: 44px;
+        margin-top: 8px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        background: rgba(15, 23, 42, 0.92);
+        color: #e5f0ff;
+        font-size: 14px;
+      }
+      textarea { min-height: 88px; }
+      button {
+        min-height: 42px;
+        border: 0;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #38bdf8, #a78bfa);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 0 14px;
+        cursor: pointer;
+      }
+      button.secondary { background: rgba(15, 23, 42, 0.92); }
+      button.warn { background: linear-gradient(135deg, #fb7185, #ef4444); }
+      .actions, .toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+      .message {
+        margin-top: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-size: 14px;
+        display: none;
+      }
+      .message.show { display: block; }
+      .message.ok { background: rgba(16, 185, 129, 0.16); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.28); }
+      .message.error { background: rgba(239, 68, 68, 0.16); color: #fecaca; border: 1px solid rgba(239, 68, 68, 0.28); }
+      .toolbar input { max-width: 300px; margin-top: 0; }
+      .diag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 14px; }
+      .diag-card { padding: 14px; border-radius: 16px; background: rgba(15, 23, 42, 0.92); border: 1px solid rgba(148, 163, 184, 0.16); }
+      .diag-card strong { display: block; margin-bottom: 6px; }
+      .diag-ok { color: #a7f3d0; }
+      .diag-error { color: #fecaca; }
+      .diag-muted { color: #93a4bf; }
+      .diag-list { margin: 10px 0 0; padding-left: 18px; color: #93a4bf; }
+      .table-wrap { overflow-x: auto; margin-top: 14px; }
+      table { width: 100%; border-collapse: collapse; min-width: 920px; }
+      th, td {
+        text-align: left;
+        padding: 12px 10px;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+        font-size: 14px;
+        vertical-align: top;
+      }
+      th { color: #93a4bf; font-weight: 700; }
+      .pill {
+        display: inline-flex;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        background: rgba(15, 23, 42, 0.92);
+      }
+      .pill.active { background: rgba(16, 185, 129, 0.18); color: #a7f3d0; }
+      .pill.pending { background: rgba(245, 158, 11, 0.18); color: #fde68a; }
+      .pill.disabled { background: rgba(239, 68, 68, 0.18); color: #fecaca; }
+      .row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+      .hint { margin-top: 10px; font-size: 13px; color: #93a4bf; }
+      .mode-summary { display: grid; gap: 8px; margin-top: 14px; }
+      .mode-summary strong { color: #fff; }
+      @media (min-width: 900px) {
+        .grid { grid-template-columns: 420px 1fr; }
+        .field-grid { grid-template-columns: 1fr 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="hero">
+        <h1>签证工具箱后台</h1>
+        <p>这里不只是管理授权，也负责一键切换站点运行模式。测试版、公测版、收费版共享同一套前端与后端入口，切换时尽量无缝。</p>
+      </section>
+
+      <section class="grid">
+        <div>
+          <section class="panel">
+            <h2>站点模式总控</h2>
+            <p>核心目标是一个按钮切模式。测试版免费快跑，公测版开放收集反馈，收费版启用激活码。必要时也能快速退回测试版。</p>
+            <div class="mode-switch-grid">
+              <button type="button" class="mode-option" data-mode="beta">
+                <strong>测试版</strong><br />
+                <span>默认免费，不强制激活，优先验证页面与流程。</span>
+              </button>
+              <button type="button" class="mode-option" data-mode="public-beta">
+                <strong>公测版</strong><br />
+                <span>继续免费开放，但更强调公开反馈与自然传播。</span>
+              </button>
+              <button type="button" class="mode-option" data-mode="paid">
+                <strong>收费版</strong><br />
+                <span>启用激活码校验，已激活用户可无缝进入工具。</span>
+              </button>
+            </div>
+            <div class="field-grid">
+              <label>
+                首页标题
+                <input id="siteTitle" type="text" placeholder="签证工具箱" />
+              </label>
+              <label>
+                首页副标题
+                <input id="siteSubtitle" type="text" placeholder="一句话说明站点价值" />
+              </label>
+            </div>
+            <label style="margin-top:12px;">
+              当前模式公告
+              <textarea id="siteAnnouncement" placeholder="例如：当前为公测版，欢迎真实使用后反馈。"></textarea>
+            </label>
+            <div class="actions">
+              <button id="saveModeConfigBtn" type="button">保存模式设置</button>
+              <button id="switchToBetaBtn" class="secondary" type="button">一键切回测试版</button>
+              <button id="runCleanupBtn" class="secondary" type="button">立即清理 60 天旧数据</button>
+            </div>
+            <div id="modeMessage" class="message"></div>
+            <div id="modeSummary" class="mode-summary hint"></div>
+          </section>
+
+          <section class="panel">
+            <h2>管理员设置</h2>
+            <label>
+              Admin Bearer Token
+              <input id="adminToken" type="password" placeholder="请输入管理员 token" />
+            </label>
+            <div class="actions">
+              <button id="saveTokenBtn">保存 token</button>
+              <button id="clearTokenBtn" class="secondary" type="button">清除</button>
+              <button id="runDiagnosticsBtn" class="secondary" type="button">刷新诊断</button>
+            </div>
+            <div class="hint">这个 token 对应后端 `.env` 里的 `ADMIN_BEARER_TOKEN`。</div>
+            <div class="diag-grid" id="diagnosticGrid">
+              <div class="diag-card"><strong>API 连通性</strong><div id="diagApi" class="diag-muted">未检查</div></div>
+              <div class="diag-card"><strong>配置状态</strong><div id="diagConfig" class="diag-muted">未检查</div></div>
+              <div class="diag-card"><strong>数据库状态</strong><div id="diagDatabase" class="diag-muted">未检查</div></div>
+              <div class="diag-card"><strong>管理员鉴权</strong><div id="diagAuth" class="diag-muted">未检查</div></div>
+              <div class="diag-card"><strong>TLS 校验</strong><div id="diagTls" class="diag-muted">未检查</div></div>
+            </div>
+            <ul id="diagnosticIssues" class="diag-list"></ul>
+          </section>
+
+          <section class="panel">
+            <h2>新建授权</h2>
+            <div class="field-grid">
+              <label>
+                用户邮箱
+                <input id="customerEmail" type="email" placeholder="user@example.com" />
+              </label>
+              <label>
+                用户姓名
+                <input id="customerName" type="text" placeholder="可不填" />
+              </label>
+              <label>
+                订单号
+                <input id="orderId" type="text" placeholder="ORDER-001" />
+              </label>
+              <label>
+                商品名
+                <input id="productName" type="text" value="签证工具箱" />
+              </label>
+            </div>
+            <div class="actions">
+              <button id="createLicenseBtn">创建授权</button>
+            </div>
+            <div id="createMessage" class="message"></div>
+          </section>
+        </div>
+
+        <section class="table-card">
+          <h2>授权列表</h2>
+          <div class="toolbar">
+            <input id="searchInput" type="text" placeholder="搜邮箱 / 激活码 / 姓名" />
+            <input id="licenseCsvInput" type="file" accept=".csv,text/csv" style="display:none;" />
+            <button id="refreshBtn" class="secondary" type="button">刷新列表</button>
+            <button id="importLicenseCsvBtn" class="secondary" type="button">导入授权 CSV</button>
+            <button id="exportLicenseCsvBtn" class="secondary" type="button">导出授权 CSV</button>
+            <button id="loadFeedbackBtn" class="secondary" type="button">查看后端评价</button>
+            <button id="loadLocalFeedbackBtn" class="secondary" type="button">查看当前浏览器本地评价</button>
+          </div>
+          <div id="listMessage" class="message"></div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>状态</th>
+                  <th>激活码</th>
+                  <th>邮箱</th>
+                  <th>姓名</th>
+                  <th>商品</th>
+                  <th>设备</th>
+                  <th>激活次数</th>
+                  <th>创建时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="licenseTableBody">
+                <tr>
+                  <td colspan="9">正在加载...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="table-card">
+        <h2>评价统计</h2>
+        <p>公测期和收费期都可以继续看同一份反馈积累，方便判断要不要回退测试版。</p>
+        <div id="feedbackStats" class="hint" style="margin-top:14px;line-height:1.8;">还没有加载统计。</div>
+      </section>
+
+      <section class="table-card">
+        <h2>评价明细</h2>
+        <p>这里可以分别查看后端汇总评价，或当前浏览器本地缓存评价，避免混淆。</p>
+        <div class="toolbar">
+          <button id="exportFeedbackCsvBtn" class="secondary" type="button">导出评价 CSV</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>模式</th>
+                <th>帮助度</th>
+                <th>使用工具</th>
+                <th>最大问题</th>
+                <th>收费偏好</th>
+                <th>推荐意愿</th>
+                <th>补充 / 单题答案</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="feedbackTableBody">
+              <tr>
+                <td colspan="9">还没有加载评价。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>

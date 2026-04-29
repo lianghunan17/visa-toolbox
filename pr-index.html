@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日本永驻申请判断</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./mode-config.js"></script>
+    <script src="./license-client.js"></script>
+    <script src="./mode-gate.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>日本永驻申请判断</h1>
+        <p id="pageSubtitle">根据永驻申请常见规则和风险因素，做一个粗略的申请准备度判断与跟踪。</p>
+        <div class="mode-strip">
+          <span id="pageModeLabel" class="mode-pill highlight">测试版</span>
+          <span id="pageModeHint" class="mode-pill">快速试跑</span>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card form-card">
+          <h2>你的情况</h2>
+          <form id="pr-form">
+            <label>
+              案例名称
+              <input id="caseName" type="text" placeholder="例如：我自己 / 配偶永驻 / 2026-04 初版" />
+            </label>
+            <label>
+              当前身份类型
+              <select id="visaType">
+                <option value="work">就劳签证</option>
+                <option value="spouse">日本人/永住者配偶者</option>
+                <option value="longTerm">定住者</option>
+                <option value="hsp70">高度人才 70+</option>
+                <option value="hsp80">高度人才 80+</option>
+              </select>
+            </label>
+
+            <label>
+              在日本连续居住年数
+              <input id="yearsInJapan" type="number" min="0" step="0.1" value="5" />
+            </label>
+
+            <label>
+              以就劳或居住资格连续在留年数
+              <input id="qualifiedYears" type="number" min="0" step="0.1" value="5" />
+            </label>
+
+            <label>
+              当前在留期间
+              <select id="stayPeriod">
+                <option value="5">5年</option>
+                <option value="3">3年</option>
+                <option value="1">1年</option>
+              </select>
+            </label>
+
+            <label>
+              年收入（万日元）
+              <input id="income" type="number" min="0" step="1" value="500" />
+            </label>
+
+            <label>
+              最近 2 年是否按时缴纳住民税
+              <select id="residentTax">
+                <option value="yes">是</option>
+                <option value="late">有迟缴</option>
+                <option value="no">没有/不确定</option>
+              </select>
+            </label>
+
+            <label>
+              最近 2 年是否按时缴纳年金/健康保险
+              <select id="socialInsurance">
+                <option value="yes">是</option>
+                <option value="late">有迟缴</option>
+                <option value="no">没有/不确定</option>
+              </select>
+            </label>
+
+            <label>
+              最近 5 年是否有罚金、刑事处罚、严重交通违法
+              <select id="penalty">
+                <option value="no">没有</option>
+                <option value="minor">有轻微记录</option>
+                <option value="yes">有</option>
+              </select>
+            </label>
+
+            <label>
+              最近 1 年单次离开日本是否超过 3 个月，或累计离境明显较多
+              <select id="longAbsence">
+                <option value="no">没有</option>
+                <option value="some">有一些</option>
+                <option value="yes">是</option>
+              </select>
+            </label>
+
+            <label>
+              是否有日本人/永住者作为身元保证人
+              <select id="guarantor">
+                <option value="yes">有</option>
+                <option value="no">没有</option>
+              </select>
+            </label>
+
+            <label>
+              你在入管局递交申请的日期
+              <input id="submitDate" type="date" />
+            </label>
+
+            <label>
+              最近更新备注
+              <textarea id="latestNote" rows="4" placeholder="例如：已补税单、准备年金记录、等配偶材料。"></textarea>
+            </label>
+
+            <label>
+              婚姻是否真实稳定（配偶签适用）
+              <select id="marriageStable">
+                <option value="yes">是</option>
+                <option value="unknown">不适用/不确定</option>
+                <option value="no">否</option>
+              </select>
+            </label>
+
+            <label>
+              高度人才分数是否持续满足（高度人才适用）
+              <select id="hspStable">
+                <option value="yes">是</option>
+                <option value="unknown">不适用/不确定</option>
+                <option value="no">否</option>
+              </select>
+            </label>
+
+            <button type="submit">开始判断</button>
+          </form>
+        </section>
+
+        <section class="card result-card">
+          <div class="result-header">
+            <h2>判断结果</h2>
+            <div class="result-actions">
+              <button id="copyPrResult" type="button">复制结果</button>
+              <button id="downloadPrPdf" type="button">下载判断结果 PDF</button>
+            </div>
+          </div>
+          <div id="result" class="result-empty">请填写左侧信息后点击“开始判断”。</div>
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="./feedback.html" class="link-chip">用完了，去做评价</a>
+            <a href="./index.html" class="link-chip">返回工具箱</a>
+          </div>
+        </section>
+
+        <section class="card notes">
+          <h2>已保存案例</h2>
+          <label>
+            搜索案例
+            <input id="prCaseSearch" type="text" placeholder="输入案例名称搜索" />
+          </label>
+          <label>
+            排序方式
+            <select id="prCaseSort">
+              <option value="newest">最新优先</option>
+              <option value="oldest">最早优先</option>
+              <option value="name">按名称</option>
+            </select>
+          </label>
+          <div id="savedPrCases" class="result-empty">还没有保存的案例。</div>
+        </section>
+
+        <section class="card notes">
+          <h2>口径说明</h2>
+          <div class="policy-box">
+            <p class="source-title">永驻判断说明</p>
+            <ul>
+              <li>这是根据常见永驻规则和风险因素做的粗略判断，不等于法律意见。</li>
+              <li>最终结果仍取决于材料完整性、事实一致性和入管审查判断。</li>
+              <li>如果涉及离境多、税保记录异常、婚姻真实性、高度人才积分证明等情况，建议进一步细查。</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      function applyPageMode() {
+        const config = window.ModeConfig.readModeConfig();
+        const presentation = window.ModeConfig.getModePresentation(config);
+        document.getElementById('pageSubtitle').textContent = config.mode === 'paid'
+          ? '当前为收费版，提交判断前会先校验你的激活状态。'
+          : config.mode === 'public-beta'
+            ? '当前为公测版，先真实开放使用，再用反馈决定收费版节奏。'
+            : '当前为测试版，优先验证内容、交互和整体流程。';
+        document.getElementById('pageModeLabel').textContent = presentation.modeLabel;
+        document.getElementById('pageModeHint').textContent = presentation.pill;
+      }
+      applyPageMode();
+      window.ModeConfig.fetchModeConfig().then(applyPageMode);
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>

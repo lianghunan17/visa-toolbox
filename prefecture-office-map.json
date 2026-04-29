@@ -1,0 +1,36 @@
+{
+  "東京都": {"recommended": "本局（品川）", "alternatives": ["立川出張所"], "note": "东京内具体落点可能受住址与申请类型影响。"},
+  "神奈川県": {"recommended": "横浜支局系統", "alternatives": [], "note": "神奈川县原则上按横滨支局体系处理。"},
+  "埼玉県": {"recommended": "さいたま出張所", "alternatives": [], "note": "埼玉县通常优先看さいたま出張所。"},
+  "千葉県": {"recommended": "千葉出張所", "alternatives": ["松戸出張所"], "note": "千叶县部分区域可能落到松户。"},
+  "茨城県": {"recommended": "水戸出張所", "alternatives": ["千葉出張所", "松戸出張所", "宇都宮出張所"], "note": "茨城县存在跨出张所处理可能。"},
+  "栃木県": {"recommended": "宇都宮出張所", "alternatives": ["水戸出張所", "高崎出張所"], "note": "栃木县存在跨出张所处理可能。"},
+  "群馬県": {"recommended": "高崎出張所", "alternatives": ["宇都宮出張所"], "note": "群马县通常优先看高崎。"},
+  "山梨県": {"recommended": "甲府出張所", "alternatives": ["立川出張所"], "note": "山梨县通常优先看甲府。"},
+  "長野県": {"recommended": "長野出張所", "alternatives": ["甲府出張所", "高崎出張所"], "note": "长野县存在多个可能受理点。"},
+  "新潟県": {"recommended": "新潟出張所", "alternatives": ["長野出張所", "高崎出張所"], "note": "新潟县通常优先看新潟出張所。"},
+
+  "滋賀県": {"recommended": "大津出張所", "alternatives": ["京都出張所"], "note": "滋贺县一般优先大津。"},
+  "京都府": {"recommended": "京都出張所", "alternatives": ["舞鶴港出張所", "大津出張所"], "note": "京都府内也可能受具体区域影响。"},
+  "大阪府": {"recommended": "本局（大阪）", "alternatives": [], "note": "大阪府通常以大阪本局为主。"},
+  "兵庫県": {"recommended": "本局（大阪）", "alternatives": ["舞鶴港出張所"], "note": "兵库部分情形可能与港口系出张所相关。"},
+  "奈良県": {"recommended": "奈良出張所", "alternatives": ["和歌山出張所"], "note": "奈良通常优先奈良出张所。"},
+  "和歌山県": {"recommended": "和歌山出張所", "alternatives": ["奈良出張所"], "note": "和歌山通常优先和歌山出张所。"},
+
+  "愛知県": {"recommended": "本局（名古屋）", "alternatives": ["豊橋港出張所"], "note": "爱知县通常以名古屋本局为主。"},
+  "三重県": {"recommended": "四日市港出張所", "alternatives": [], "note": "三重县优先四日市港出张所。"},
+  "静岡県": {"recommended": "静岡出張所", "alternatives": ["浜松出張所"], "note": "静冈县常见静冈/滨松两类受理点。"},
+  "岐阜県": {"recommended": "岐阜出張所", "alternatives": ["富山出張所"], "note": "岐阜县通常优先岐阜出张所。"},
+  "福井県": {"recommended": "福井出張所", "alternatives": ["金沢出張所"], "note": "福井县可能与金泽系有交叉。"},
+  "富山県": {"recommended": "富山出張所", "alternatives": ["金沢出張所"], "note": "富山县一般优先富山出张所。"},
+  "石川県": {"recommended": "金沢出張所", "alternatives": ["福井出張所"], "note": "石川县一般优先金泽出张所。"},
+
+  "福岡県": {"recommended": "本局（福岡）", "alternatives": ["北九州出張所"], "note": "福冈县通常以本局为主，北九州是常见备选。"},
+  "佐賀県": {"recommended": "佐賀出張所", "alternatives": ["長崎出張所"], "note": "佐贺县通常优先佐贺出张所。"},
+  "長崎県": {"recommended": "長崎出張所", "alternatives": ["対馬出張所", "佐賀出張所"], "note": "长崎县离岛及区域差异较大。"},
+  "大分県": {"recommended": "大分出張所", "alternatives": ["北九州出張所"], "note": "大分县通常优先大分出张所。"},
+  "熊本県": {"recommended": "熊本出張所", "alternatives": ["大分出張所", "宮崎出張所", "鹿児島出張所"], "note": "熊本县存在多个可能受理点。"},
+  "宮崎県": {"recommended": "宮崎出張所", "alternatives": ["熊本出張所", "大分出張所"], "note": "宫崎县通常优先宫崎出张所。"},
+  "鹿児島県": {"recommended": "鹿児島出張所", "alternatives": [], "note": "鹿儿岛通常优先鹿儿岛出张所。"},
+  "沖縄県": {"recommended": "那覇支局系統", "alternatives": [], "note": "冲绳原则上应视为那霸支局体系。"}
+}

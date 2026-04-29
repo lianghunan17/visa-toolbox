@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>签证工具箱运行态展示</title>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0; background: #07111f; color: #e5f0ff; }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+      .card { background: rgba(8,15,31,.85); border: 1px solid rgba(148,163,184,.18); border-radius: 20px; padding: 20px; margin-bottom: 16px; }
+      .ok { color: #86efac; }
+      .bad { color: #fca5a5; }
+      .muted { color: #93a4bf; }
+      code, pre { background: rgba(15,23,42,.92); color: #dbeafe; border-radius: 12px; }
+      pre { padding: 14px; overflow: auto; }
+      a { color: #7dd3fc; }
+      ul { line-height: 1.8; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <h1>签证工具箱运行态展示</h1>
+        <p class="muted">这是我这轮直接做出来、你现在就能验证的成果物入口。</p>
+      </div>
+      <div class="card">
+        <h2>你现在可以直接打开</h2>
+        <ul>
+          <li>后台本地入口：<a href="http://127.0.0.1:8080/admin.local.html" target="_blank">http://127.0.0.1:8080/admin.local.html</a></li>
+          <li>运行态展示页：<a href="http://127.0.0.1:8080/runtime-demo.html" target="_blank">http://127.0.0.1:8080/runtime-demo.html</a></li>
+          <li>健康检查：<a href="http://127.0.0.1:8787/health" target="_blank">http://127.0.0.1:8787/health</a></li>
+          <li>就绪检查：<a href="http://127.0.0.1:8787/ready" target="_blank">http://127.0.0.1:8787/ready</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>当前状态</h2>
+        <ul>
+          <li class="ok">后端新版已运行</li>
+          <li class="ok">配置自检已通过</li>
+          <li class="ok">TLS 校验正常开启</li>
+          <li class="ok">/health 已绿</li>
+          <li class="ok">/ready 已接入数据库连通性检查</li>
+          <li class="ok">开发环境已自动注入系统根证书给 Node，Supabase TLS 链路已修通</li>
+          <li class="ok">后台诊断面板已可用</li>
+          <li class="ok">发布前自检脚本已可用</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>我这轮做了什么</h2>
+        <ul>
+          <li>去掉危险默认项，收紧 TLS 和管理员 token</li>
+          <li>补了 /health 和 /ready 运行态检查</li>
+          <li>把数据库失败分类成可读诊断</li>
+          <li>给后台加了诊断面板和刷新诊断按钮</li>
+          <li>补了 preflight 发布前自检脚本</li>
+          <li>补了 .env.example，统一配置基线</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>建议你怎么验收</h2>
+        <ol>
+          <li>先打开后台本地入口，看管理员设置下面的诊断面板</li>
+          <li>再打开 /health 和 /ready，看是否返回 JSON 且状态正常</li>
+          <li>最后跑 <code>npm run preflight</code>，确认发布前自检通过</li>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>
