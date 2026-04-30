@@ -523,10 +523,9 @@ function exportFeedbackCsv() {
   URL.revokeObjectURL(url);
 }
 
-function renderModeSelection() {
-  const config = window.ModeConfig.readModeConfig();
+function renderModeSelection(configOverride) {
+  const config = configOverride || window.ModeConfig.readModeConfig();
   const presentation = window.ModeConfig.getModePresentation(config);
-  selectedMode = config.mode;
   modeButtons.forEach(btn => {
     btn.classList.toggle('active', btn.dataset.mode === selectedMode);
   });
@@ -543,8 +542,9 @@ function renderModeSelection() {
 }
 
 async function loadModeConfigRemote() {
-  await window.ModeConfig.fetchModeConfig();
-  renderModeSelection();
+  const config = await window.ModeConfig.fetchModeConfig();
+  selectedMode = config.mode;
+  renderModeSelection(config);
 }
 
 async function saveModeConfig() {
@@ -556,7 +556,8 @@ async function saveModeConfig() {
   };
   try {
     const saved = await window.ModeConfig.saveModeConfigRemote(next, getAdminToken());
-    renderModeSelection();
+    selectedMode = saved.mode;
+    renderModeSelection(saved);
     const presentation = window.ModeConfig.getModePresentation(saved);
     showMessage(modeMessageEl, `已切到${presentation.modeLabel}，并已同步到云端。`);
   } catch (error) {
@@ -567,7 +568,11 @@ async function saveModeConfig() {
 modeButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     selectedMode = btn.dataset.mode;
-    renderModeSelection();
+    const previewConfig = {
+      ...window.ModeConfig.readModeConfig(),
+      mode: selectedMode,
+    };
+    renderModeSelection(previewConfig);
   });
 });
 
