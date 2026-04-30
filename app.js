@@ -271,10 +271,10 @@ function savePrCase(data, evaluated) {
 
 function downloadPrPdf() {
   if (!lastPrText || !lastPrData) {
-    window.alert('请先生成判断结果，再下载 PDF。');
+    window.alert('请先生成辅助参考结果，再下载 PDF。');
     return;
   }
-  const html = `<!doctype html><html><head><meta charset="utf-8"><title>永驻判断结果</title><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:32px;line-height:1.8;color:#111}h1{font-size:24px;margin-bottom:16px}.card{border:1px solid #e5e7eb;border-radius:16px;padding:20px;background:#fff}pre{white-space:pre-wrap;font:14px/1.8 sans-serif}</style></head><body><div class="card"><h1>日本永驻申请判断结果</h1><pre>${lastPrText}</pre></div><script>window.onload=()=>{window.print();}</script></body></html>`;
+  const html = `<!doctype html><html><head><meta charset="utf-8"><title>永驻辅助参考结果</title><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:32px;line-height:1.8;color:#111}h1{font-size:24px;margin-bottom:16px}.card{border:1px solid #e5e7eb;border-radius:16px;padding:20px;background:#fff}pre{white-space:pre-wrap;font:14px/1.8 sans-serif}.note{margin-top:16px;color:#4b5563;font-size:13px;line-height:1.7}</style></head><body><div class="card"><h1>日本永驻申请辅助参考结果</h1><pre>${lastPrText}</pre><div class="note">免责声明：本结果仅供信息参考，不构成法律意见、代理意见或任何结果保证。最终请以官方要求、正式审查结果及专业人士意见为准。</div></div><script>window.onload=()=>{window.print();}</script></body></html>`;
   const win = window.open('', '_blank');
   win.document.open();
   win.document.write(html);
@@ -283,20 +283,20 @@ function downloadPrPdf() {
 
 async function copyPrResult() {
   if (!lastPrText) {
-    window.alert('请先生成判断结果，再复制。');
+    window.alert('请先生成辅助参考结果，再复制。');
     return;
   }
   await navigator.clipboard.writeText(lastPrText);
-  window.alert('判断结果已复制。');
+  window.alert('辅助参考结果已复制。');
 }
 
 function render(data) {
   const r = evaluate(data);
   lastPrData = data;
   lastPrText = [
-    '日本永驻申请判断结果',
-    `当前申请判断: ${r.eligible ? '可准备' : '先补条件'}`,
-    `整体概率: ${r.probability}`,
+    '日本永驻申请辅助参考结果',
+    `当前准备度参考: ${r.eligible ? '可继续准备' : '建议先补条件'}`,
+    `综合参考等级: ${r.probability}`,
     `预计审理时间: ${r.wait.label}`,
     '',
     '主要风险:',
@@ -306,17 +306,19 @@ function render(data) {
     ...(r.strengths.length ? r.strengths : ['目前暂未看到特别明显的强优势。']),
     '',
     `最近更新备注: ${data.latestNote || '无'}`,
+    '',
+    '免责声明: 本结果仅供信息参考，不构成法律意见、代理意见或任何结果保证。',
   ].join('\n');
 
   result.innerHTML = `
-    <div class="badge ${r.badgeClass}">永驻判断</div>
+    <div class="badge ${r.badgeClass}">辅助参考</div>
     <div class="summary-grid">
       <div class="summary-item">
-        <div class="label">当前申请判断</div>
-        <div class="value">${r.eligible ? '可准备' : '先补条件'}</div>
+        <div class="label">当前准备度参考</div>
+        <div class="value">${r.eligible ? '可继续准备' : '建议先补条件'}</div>
       </div>
       <div class="summary-item">
-        <div class="label">整体概率</div>
+        <div class="label">综合参考等级</div>
         <div class="value">${r.probability}</div>
       </div>
       <div class="summary-item">
@@ -326,8 +328,8 @@ function render(data) {
     </div>
 
     <div class="result-block">
-      <h3>1. 当前判断</h3>
-      <p>${r.eligible ? '从你填写的信息看，已经接近或达到申请门槛，可以开始准备材料。' : '从你填写的信息看，当前直接申请的风险偏高，建议先补条件再申请。'}</p>
+      <h3>1. 当前参考</h3>
+      <p>${r.eligible ? '从你填写的信息看，当前接近常见申请门槛，可继续准备材料并核对细节。' : '从你填写的信息看，当前直接申请的风险偏高，建议先补条件后再评估。'}</p>
     </div>
 
     <div class="result-block">
@@ -336,7 +338,7 @@ function render(data) {
     </div>
 
     <div class="result-block">
-      <h3>3. 主要风险</h3>
+      <h3>3. 主要风险提示</h3>
       <ul>${(r.blockers.length ? r.blockers : ['目前没有明显硬性阻断项。']).map(item => `<li>${item}</li>`).join('')}</ul>
     </div>
 
@@ -352,6 +354,7 @@ function render(data) {
 
     <div class="result-block">
       <h3>6. 需要留意的点</h3>
+      <p style="margin-bottom:10px;color:#6b7280;">以下内容仅供信息参考，不构成法律意见或结果保证。</p>
       <ul>${(r.warnings.length ? r.warnings : ['目前没有特别突出的软性风险项。']).map(item => `<li>${item}</li>`).join('')}</ul>
     </div>
   `;

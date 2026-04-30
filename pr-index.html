@@ -13,8 +13,8 @@
   <body>
     <div class="app">
       <header>
-        <h1>日本永驻申请判断</h1>
-        <p id="pageSubtitle">根据永驻申请常见规则和风险因素，做一个粗略的申请准备度判断与跟踪。</p>
+        <h1>日本永驻申请辅助参考</h1>
+        <p id="pageSubtitle">根据常见永驻申请规则和公开信息，提供粗略的准备度参考与材料整理提示。</p>
         <div class="mode-strip">
           <span id="pageModeLabel" class="mode-pill highlight">测试版</span>
           <span id="pageModeHint" class="mode-pill">快速试跑</span>
@@ -136,19 +136,19 @@
               </select>
             </label>
 
-            <button type="submit">开始判断</button>
+            <button type="submit">生成辅助参考</button>
           </form>
         </section>
 
         <section class="card result-card">
           <div class="result-header">
-            <h2>判断结果</h2>
+            <h2>辅助参考结果</h2>
             <div class="result-actions">
               <button id="copyPrResult" type="button">复制结果</button>
-              <button id="downloadPrPdf" type="button">下载判断结果 PDF</button>
+              <button id="downloadPrPdf" type="button">下载辅助参考 PDF</button>
             </div>
           </div>
-          <div id="result" class="result-empty">请填写左侧信息后点击“开始判断”。</div>
+          <div id="result" class="result-empty">请填写左侧信息后点击“生成辅助参考”。</div>
           <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
             <a href="./feedback.html" class="link-chip">用完了，去做评价</a>
             <a href="./index.html" class="link-chip">返回工具箱</a>
@@ -173,13 +173,13 @@
         </section>
 
         <section class="card notes">
-          <h2>口径说明</h2>
+          <h2>免责声明与口径说明</h2>
           <div class="policy-box">
-            <p class="source-title">永驻判断说明</p>
+            <p class="source-title">永驻辅助参考说明</p>
             <ul>
-              <li>这是根据常见永驻规则和风险因素做的粗略判断，不等于法律意见。</li>
-              <li>最终结果仍取决于材料完整性、事实一致性和入管审查判断。</li>
-              <li>如果涉及离境多、税保记录异常、婚姻真实性、高度人才积分证明等情况，建议进一步细查。</li>
+              <li>本工具仅基于公开信息和一般性情形提供辅助参考，不构成法律意见、代理意见或任何结果保证。</li>
+              <li>最终结果仍取决于个人事实、材料完整性、政策变化及入管审查判断。</li>
+              <li>如涉及离境较多、税保记录异常、婚姻真实性、高度人才积分证明等复杂情况，建议进一步核对官方要求或咨询专业人士。</li>
             </ul>
           </div>
         </section>
@@ -191,7 +191,7 @@
         const config = window.ModeConfig.readModeConfig();
         const presentation = window.ModeConfig.getModePresentation(config);
         document.getElementById('pageSubtitle').textContent = config.mode === 'paid'
-          ? '当前为收费版，提交判断前会先校验你的激活状态。'
+          ? '当前为收费版，生成辅助参考前会先校验你的激活状态。'
           : config.mode === 'public-beta'
             ? '当前为公测版，先真实开放使用，再用反馈决定收费版节奏。'
             : '当前为测试版，优先验证内容、交互和整体流程。';
