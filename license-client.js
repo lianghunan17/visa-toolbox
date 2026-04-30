@@ -1,6 +1,6 @@
 const LICENSE_STORAGE_KEY = 'visa-toolbox-license-v1';
-const IS_LOCALHOST = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
-const LICENSE_API_BASE = window.__LICENSE_API_BASE__ || (IS_LOCALHOST ? 'http://127.0.0.1:8787' : '');
+const LICENSE_CLIENT_IS_LOCALHOST = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+const LICENSE_API_BASE = window.__LICENSE_API_BASE__ || (LICENSE_CLIENT_IS_LOCALHOST ? 'http://127.0.0.1:8787' : '');
 
 function ensureLicenseApiBase() {
   if (!LICENSE_API_BASE) {
