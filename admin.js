@@ -1,6 +1,6 @@
 const ADMIN_TOKEN_STORAGE_KEY = 'visa-toolbox-admin-token';
-const IS_LOCALHOST = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
-const ADMIN_API_BASE = window.__LICENSE_API_BASE__ || (IS_LOCALHOST ? 'http://127.0.0.1:8787' : '');
+const ADMIN_IS_LOCALHOST = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+const ADMIN_API_BASE = window.__LICENSE_API_BASE__ || (ADMIN_IS_LOCALHOST ? 'http://127.0.0.1:8787' : '');
 
 const adminTokenEl = document.getElementById('adminToken');
 const saveTokenBtn = document.getElementById('saveTokenBtn');
