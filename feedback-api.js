@@ -1,5 +1,5 @@
-const IS_LOCALHOST = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
-const FEEDBACK_API_BASE = window.__LICENSE_API_BASE__ || (IS_LOCALHOST ? 'http://127.0.0.1:8787' : '');
+const FEEDBACK_IS_LOCALHOST = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+const FEEDBACK_API_BASE = window.__LICENSE_API_BASE__ || (FEEDBACK_IS_LOCALHOST ? 'http://127.0.0.1:8787' : '');
 
 function ensureFeedbackApiBase() {
   if (!FEEDBACK_API_BASE) {
